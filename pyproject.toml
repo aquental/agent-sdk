@@ -14,6 +14,8 @@ dependencies = [
 [project.scripts]
 agent-sdk = "agent_sdk.cli:main"
 agents = "agents.main:main"
+agent3 = "3agents.main:main"
+
 
 [build-system]
 requires = ["uv_build>=0.12.9,<0.13.0"]
