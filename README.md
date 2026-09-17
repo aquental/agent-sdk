@@ -28,3 +28,31 @@ uv run agent-sdk --model sonnet --max-turns 5 --permission-mode plan "review too
 The default model comes from `AGENT_SDK_MODEL` (falls back to `sonnet`).
 
 ## Open AI
+
+## Agent Examples (`src/agents/`, `src/1agents/`, `src/3agents/`)
+
+Three directories explore the Claude Agent SDK's agent orchestration capabilities:
+
+### `src/agents/` — Single sub-agent
+
+A lead orchestrator (haiku) delegates **code analysis** to a specialized `analyzer` sub-agent (sonnet), then applies fixes and documentation itself. Basic delegation pattern.
+
+```shell
+uv run agents
+```
+
+### `src/1agents/` — Three sub-agents
+
+Same orchestrator but delegates to **three** specialized sub-agents: `analyzer`, `fixer` (sonnet), and `documenter` (haiku). Each owns one stage of the improvement pipeline.
+
+```shell
+uv run agent1
+```
+
+### `src/3agents/` — MCP server + sub-agent
+
+Demonstrates MCP tool sharing with sub-agents. An orchestrator delegates documentation lookups to a `researcher` sub-agent (haiku) that uses the **Context7 MCP server** (`mcp__context7__resolve-library-id` / `mcp__context7__get-library-docs`) to search library docs. MCP servers are registered via `mcp_servers` in `ClaudeAgentOptions`.
+
+```shell
+uv run agent3
+```
