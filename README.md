@@ -56,6 +56,16 @@ Demonstrates MCP tool sharing with sub-agents. An orchestrator delegates documen
 uv run agent3
 ```
 
+### Encrypt / Decrypt `.env`
+
+```shell
+# Decrypt .env.gpg → .env
+gpg --decrypt .env.gpg > .env
+
+# Encrypt .env → .env.gpg (after editing .env)
+gpg --symmetric --cipher-algo AES256 .env
+```
+
 ---
 
 ## Open AI
