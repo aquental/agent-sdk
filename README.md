@@ -27,7 +27,6 @@ uv run agent-sdk --model sonnet --max-turns 5 --permission-mode plan "review too
 
 The default model comes from `AGENT_SDK_MODEL` (falls back to `sonnet`).
 
-## Open AI
 
 ## Agent Examples (`src/agents/`, `src/1agents/`, `src/3agents/`)
 
@@ -56,3 +55,7 @@ Demonstrates MCP tool sharing with sub-agents. An orchestrator delegates documen
 ```shell
 uv run agent3
 ```
+
+---
+
+## Open AI
